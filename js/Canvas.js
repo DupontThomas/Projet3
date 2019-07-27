@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Canvas {
 
@@ -13,7 +13,7 @@ class Canvas {
         this.canvas.height = 150;
         this.ctx = this.canvas.getContext("2d");
         this.ctx.lineWidth = 3;
-        this.ctx.fillStyle = 'black';
+        this.ctx.fillStyle = "black";
         this.touchX = "";
         this.touchY = "";
     }

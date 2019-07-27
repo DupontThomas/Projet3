@@ -4,13 +4,13 @@ class Map {
     constructor(lat,lon) {
     this.lat = lat;
     this.lon = lon;
-    };
+    }
 
 // Initialisation de la carte
     initMap() {
-        var macarte = L.map('map').setView([this.lat, this.lon], 11);
+        var macarte = L.map("map").setView([this.lat, this.lon], 11);
         // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
             attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
             minZoom: 1,
             maxZoom: 20
@@ -22,16 +22,15 @@ class Map {
             const listeStations = JSON.parse(reponse);
 
             listeStations.forEach(station => {
-                console.log(station.status + " " + station.name);
                 var myGreenIcon = L.icon({
-                    iconUrl: 'images/greenMark.png',
+                    iconUrl: "images/greenMark.png",
                     iconSize: [50, 50],
                     iconAnchor: [25, 50],
                     popupAnchor: [-3, -76],
                 });
 
                 var myRedIcon = L.icon({
-                    iconUrl: 'images/redMark.png',
+                    iconUrl: "images/redMark.png",
                     iconSize: [50, 50],
                     iconAnchor: [25, 50],
                     popupAnchor: [-3, -76],
@@ -47,7 +46,6 @@ class Map {
 
                 //Affichage des infos de la station lors d'un clic sur son marker
                 marker.addEventListener("click", function() {
-                    console.log(station.name);
                     document.getElementById("infoStations").classList.remove("hid");
                     document.getElementById("form").style.display = "none";
                     var address = document.getElementById("adresseStation");
@@ -57,7 +55,7 @@ class Map {
                     var stateStation = "";
 
                     if (station.status === "OPEN") {
-                        stateStation = "Station ouverte"
+                        stateStation = "Station ouverte";
                     }
                     else {stateStation = "Station fermée"}
 

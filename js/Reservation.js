@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 class Reservation {
     constructor() {
@@ -27,7 +26,7 @@ class Reservation {
         this.confirmResa.addEventListener("click", this.storeData.bind(this));
 
         if(this.timeSec===0 && this.timeMin===0) {
-            sessionStorage.setItem("stationAdress", "")
+            sessionStorage.setItem("stationAdress", "");
         }
 
         if(this.address) {
@@ -38,13 +37,13 @@ class Reservation {
 
     storeData() {
         if (this.lName.value === "") {
-            alert("Merci de renseigner votre nom pour valider votre réservation.")
+            alert("Merci de renseigner votre nom pour valider votre réservation.");
         }
         else if (this.fName.value === "") {
-            alert("Merci de renseigner votre prénom pour valider votre réservation.")
+            alert("Merci de renseigner votre prénom pour valider votre réservation.");
         }
         else if (canvas.paint === 0) {
-            alert("Votre signature est nécessaire pour valider votre réservation.")
+            alert("Votre signature est nécessaire pour valider votre réservation.");
         }
         else {
             //stockage du nom et prenom en local
@@ -65,8 +64,8 @@ class Reservation {
             this.resConf.classList.remove("hid");
             this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
             this.stationConfirm.innerText = this.address;
-            this.timeMin = 0;
-            this.timeSec = 5;
+            this.timeMin = 20;
+            this.timeSec = 0;
 
             this.setInfoResa();
             clearInterval(this.timer);
@@ -94,7 +93,7 @@ class Reservation {
             this.blocInfoResa.style.backgroundColor = "rgba(255,51,0,0.5)";
             clearInterval(this.timer);
         }
-    };
+    }
 
     displayConfirmResa() {
         this.timeMin = sessionStorage.getItem("timeMin");

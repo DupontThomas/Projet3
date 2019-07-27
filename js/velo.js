@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 //Initialisation du slider
 var slider = new Slider();
