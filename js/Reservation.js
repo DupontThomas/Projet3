@@ -22,7 +22,7 @@ class Reservation {
         this.timeMin = 0;
         this.timeSec = 0;
         this.timer= "";
-    };
+    }
 
     initRes() {
         this.confirmResa.addEventListener("click", this.storeData.bind(this));
@@ -35,7 +35,7 @@ class Reservation {
                 this.displayConfirmResa();
                 this.startTimer();
             }
-    };
+    }
 
     storeData() {
         if (this.lName.value === "") {
@@ -73,7 +73,7 @@ class Reservation {
             clearInterval(this.timer);
             this.startTimer();
         }
-    };
+    }
 
             //Mise en place du timer
     startTimer() {

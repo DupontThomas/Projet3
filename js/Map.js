@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Map {
     constructor(lat,lon) {
@@ -57,7 +57,9 @@ class Map {
                     if (station.status === "OPEN") {
                         stateStation = "Station ouverte";
                     }
-                    else {stateStation = "Station fermée"}
+                    else {
+                        stateStation = "Station fermée";
+                    }
 
                     address.innerHTML = "";
                     state.innerHTML= "";
@@ -92,7 +94,7 @@ class Map {
                             document.getElementById("inputFirstName").value = reservation.prenom;
                         }
                 });
-            })
+            });
         });
     });
 }}

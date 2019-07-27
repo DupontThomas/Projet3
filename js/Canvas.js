@@ -38,7 +38,7 @@ class Canvas {
         this.clic(e);
         this.ctx.moveTo(this.newX, this.newY);
         e.preventDefault();
-    };
+    }
 
     clic(e) {
         this.newX = e.offsetX;
@@ -51,7 +51,7 @@ class Canvas {
             this.ctx.lineTo(this.newX, this.newY);
             this.ctx.stroke();
         }
-    };
+    }
 
     stopDraw() {
         if (this.enableDraw) {
@@ -73,7 +73,7 @@ class Canvas {
         this.touches(e);
         this.ctx.moveTo(this.touchX, this.touchY);
         e.preventDefault();
-    };
+    }
 
     touchDraw(e) {
         if (this.enableDraw) {
@@ -81,11 +81,11 @@ class Canvas {
             this.ctx.lineTo(this.touchX, this.touchY);
             this.ctx.stroke();
         }
-    };
+    }
 
     touches(e) {
         var canvasCss = e.target.getBoundingClientRect();
         this.touchX = e.targetTouches[0].clientX - canvasCss.left;
         this.touchY = e.targetTouches[0].clientY - canvasCss.top;
-    };
+    }
 }

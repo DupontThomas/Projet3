@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function ajaxGet(url, callback) {
     var req = new XMLHttpRequest();

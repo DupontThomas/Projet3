@@ -9,7 +9,7 @@ class Slider {
         this.currentSlide = 1;
         this.sliderAuto = setInterval(this.plusSlides.bind(this), 5000);
         this.stateStop = 0;
-    };
+    }
 
     initSlider() {
         this.showSlides();
@@ -17,15 +17,15 @@ class Slider {
         this.butNext.addEventListener("click", this.plusSlides.bind(this));
         this.butPrev.addEventListener("click", this.prevSlides.bind(this));
         this.stop.addEventListener("click", this.stopDefil.bind(this));
-    };
+    }
 
     plusSlides() {
         this.showSlides(this.currentSlide += 1);
-    };
+    }
 
     prevSlides() {
         this.showSlides(this.currentSlide -= 1);
-    };
+    }
 
     showSlides(n) {
         if (n > this.slides.length) {
@@ -38,7 +38,7 @@ class Slider {
             this.slides[i].style.display = "none";
         }
         this.slides[this.currentSlide - 1].style.display = "block";
-    };
+    }
 
     //Gestion du bouton d'arrêt
 
@@ -52,7 +52,7 @@ class Slider {
             this.sliderAuto = setInterval(this.plusSlides.bind(this), 5000);
             this.stop.textContent = "Arrêter le diaporama";
             this.stateStop --;}
-    };
+    }
 
     //Contrôle au clavier
     keyboardControl(e) {
@@ -69,5 +69,5 @@ class Slider {
             default:
                 break;
         }
-    };
+    }
 }
