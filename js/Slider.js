@@ -15,7 +15,7 @@ class Slider {
         this.showSlides();
         document.addEventListener("keydown", this.keyboardControl.bind(this));
         this.butNext.addEventListener("click", this.plusSlides.bind(this));
-        this.butPrev.addEventListener("click", this.prevSlide.bind(this));
+        this.butPrev.addEventListener("click", this.prevSlides.bind(this));
         this.stop.addEventListener("click", this.stopDefil.bind(this));
     };
 
@@ -23,7 +23,7 @@ class Slider {
         this.showSlides(this.currentSlide += 1);
     };
 
-    prevSlide() {
+    prevSlides() {
         this.showSlides(this.currentSlide -= 1);
     };
 
@@ -59,7 +59,7 @@ class Slider {
         switch (e.key) {
 
             case "ArrowLeft":
-                this.prevSlide();
+                this.prevSlides();
                 break;
 
             case "ArrowRight":

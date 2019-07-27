@@ -9,12 +9,14 @@ class Reservation {
         this.confirmResa = document.getElementById("confirmResa");
         this.resConf = document.getElementById("resConf");
         this.resStop = document.getElementById("resStop");
+
         this.nameConfirm = document.getElementById("nameConfirm");
         this.fNameConfirm = document.getElementById("fNameConfirm");
         this.lName = document.getElementById("inputLastName");
         this.fName = document.getElementById("inputFirstName");
         this.nom = localStorage.getItem("lastname");
         this.prenom = localStorage.getItem("firstname");
+
         this.minTimer = document.getElementById("minTimer");
         this.secTimer = document.getElementById("secTimer");
         this.timeMin = 0;

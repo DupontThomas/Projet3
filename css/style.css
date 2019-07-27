@@ -106,10 +106,12 @@ h1 {
 }
 
 .diapo figcaption {
+
 	display: block;
 	position: relative;
 	margin: auto;
-	margin-top: 20px;
+	margin-top: 7%;
+	margin-bottom: 7%;
 	padding: 40px;
 	width: 70%;
 	color: white;
@@ -119,21 +121,22 @@ h1 {
 }
 
 .prev, .next {
+	position: relative;
 	cursor: pointer;
+	margin: auto;
+	top: 25px;
 	width: auto;
 	height: 40%;
 	padding: 16px;
-	margin-top: 130px;
 	color: black;
 	font-weight: bold;
 	font-size: 50px;
 	transition: 0.6s ease;
-	border-radius: 3px 0 0 3px;
-	user-select: none;
+	border-radius: 10px;
 }
 
 .next {
-	border-radius: 0 3px 3px 0;
+	border-radius: 10px;
 }
 
 .prev:hover, .next:hover {
@@ -284,11 +287,13 @@ form div {
 		margin-bottom: 10px;
 	}
 
-	.diapo .texteDiapo {
+	figcaption {
 		width: 50%;
 	}
 
-
+	.prev, .next {
+		top: 0;
+	}
 	#container {
 		display: flex;
 		height: 900px;
