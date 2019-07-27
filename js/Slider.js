@@ -43,7 +43,6 @@ class Slider {
     //Gestion du bouton d'arrêt
 
     stopDefil() {
-
         if (this.stateStop === 0) {
             clearInterval(this.sliderAuto);
             this.stop.textContent = "Demarrer le diaporama";
@@ -54,7 +53,6 @@ class Slider {
             this.stop.textContent = "Arrêter le diaporama";
             this.stateStop --;}
     };
-
 
     //Contrôle au clavier
     keyboardControl(e) {

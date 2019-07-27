@@ -47,12 +47,9 @@ class Reservation {
             alert("Votre signature est nécessaire pour valider votre réservation.")
         }
         else {
-
             //stockage du nom et prenom en local
             localStorage.setItem("lastname", this.lName.value);
             localStorage.setItem("firstname", this.fName.value);
-
-
 
             //Attribution des données en local dans une variable
             this.nom = localStorage.getItem("lastname");
@@ -61,32 +58,23 @@ class Reservation {
             //Stockage de l'adresse de la station sélectionnée
             this.address = sessionStorage.getItem("stationAdress");
 
-            console.log("données stockées : " + this.nom + " " + this.prenom + " " + this.address);
-
             //Affichage de l'encadré confirmant la réservation avec nom, prenom, adresse de la station et timer
 
             this.noRes.classList.add("hid");
             this.resStop.classList.add("hid");
             this.resConf.classList.remove("hid");
             this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
-
             this.stationConfirm.innerText = this.address;
+            this.timeMin = 0;
+            this.timeSec = 5;
 
-            this.timeMin = 20;
-            this.timeSec = 0;
-
-            this.nameConfirm.innerText = this.nom;
-            this.fNameConfirm.innerText = this.prenom;
-            this.stationConfirm.innerText = this.address;
-            this.minTimer.innerText = this.timeMin;
-            this.secTimer.innerText = this.timeSec;
-
+            this.setInfoResa();
             clearInterval(this.timer);
             this.startTimer();
         }
     };
 
-                                    //Mise en place du timer
+            //Mise en place du timer
     startTimer() {
         this.timer = setInterval(this.countDown.bind(this), 1000);
     }
@@ -96,14 +84,11 @@ class Reservation {
         sessionStorage.setItem("timeSec",this.timeSec);
         this.displayConfirmResa();
         this.timeSec--;
-
         if (this.timeSec < 0) {
             this.timeSec = 59;
             this.timeMin--;
         }
-
         if (this.timeMin < 0) {
-
             this.resConf.classList.add("hid");
             this.resStop.classList.remove("hid");
             this.blocInfoResa.style.backgroundColor = "rgba(255,51,0,0.5)";
@@ -114,15 +99,17 @@ class Reservation {
     displayConfirmResa() {
         this.timeMin = sessionStorage.getItem("timeMin");
         this.timeSec = sessionStorage.getItem("timeSec");
+        this.setInfoResa();
+        this.noRes.classList.add("hid");
+        this.resConf.classList.remove("hid");
+        this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
+    }
+
+    setInfoResa() {
         this.nameConfirm.innerText = this.nom;
         this.fNameConfirm.innerText = this.prenom;
         this.stationConfirm.innerText = this.address;
         this.minTimer.innerText = this.timeMin;
         this.secTimer.innerText = this.timeSec;
-
-        this.noRes.classList.add("hid");
-        this.resConf.classList.remove("hid");
-        this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
-
     }
 }

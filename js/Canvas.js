@@ -3,7 +3,6 @@
 class Canvas {
 
     constructor() {
-
         this.paint = 0;
         this.newX = "";
         this.newY = "";
@@ -29,8 +28,9 @@ class Canvas {
         this.canvas.addEventListener("mouseout", this.stopDraw.bind(this));
         this.canvas.addEventListener("touchcancel", this.stopDraw.bind(this));
         this.clear.addEventListener("click", this.clearCanvas.bind(this));
-
     }
+
+    //Partie Souris
 
     clicDown(e) {
         this.enableDraw = true;

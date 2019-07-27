@@ -4,12 +4,9 @@ class Map {
     constructor(lat,lon) {
     this.lat = lat;
     this.lon = lon;
-
-
     };
 
 // Initialisation de la carte
-
     initMap() {
         var macarte = L.map('map').setView([this.lat, this.lon], 11);
         // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
@@ -20,13 +17,11 @@ class Map {
         }).addTo(macarte);
 
         //Récupération des stations de vélo + Attribution des marqueurs
-
         ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey=0011765f39add360397de65f4aa75c3fc275c182", function (reponse) {
             var butResa = document.getElementById("butReservation");
             const listeStations = JSON.parse(reponse);
 
             listeStations.forEach(station => {
-
                 console.log(station.status + " " + station.name);
                 var myGreenIcon = L.icon({
                     iconUrl: 'images/greenMark.png',
@@ -51,7 +46,6 @@ class Map {
                 }
 
                 //Affichage des infos de la station lors d'un clic sur son marker
-
                 marker.addEventListener("click", function() {
                     console.log(station.name);
                     document.getElementById("infoStations").classList.remove("hid");
@@ -85,39 +79,22 @@ class Map {
                     //Vidage du canvas si déjà précédemment rempli
                     canvas.clearCanvas();
 
+                    //Affichage du bouton permettant de réserver
                     butResa.classList.remove("hid");
                     butResa.style.display = "block";
 
+                    //Remplacement du bloc 'Info de la station' par le formulaire de réservation lors du clic sur le bouton réserver
                     butResa.addEventListener("click", function(){
                         document.getElementById("form").style.display = "flex";
                         document.getElementById("infoStations").classList.add("hid");
+
+                        //Pré-remplissage des champs nom/prénom si une réservation a déjà été faite précédemment
                         if(reservation.nom !== "") {
                             document.getElementById("inputLastName").value = reservation.nom;
                             document.getElementById("inputFirstName").value = reservation.prenom;
                         }
                 });
-
             })
-
         });
-
     });
 }}
-
-/* Récupère les infos des stations*/
-
-
-/*Une fois le tableau récupéré
--> Mettre chaque données utiles dans une variable spécifique grâce à une fonction forEach
-
---> Créer un objet Station reprenant en paramètre les données utiles uniquement.
-
-Infos utiles :
-adresse,
-placeDispo,
-veloDispo,
-totalPlace,
-nom,
-position,
-statut
-*/
