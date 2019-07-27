@@ -1,0 +1,352 @@
+@-webkit-keyframes fade {
+	from {opacity: 0.4}
+}
+
+@keyframes fade {
+	from {opacity: 0.4}
+}
+
+/*-----------------------------------------------*/
+
+
+body {
+	width:100%;
+	margin: auto;
+	padding: 0;
+	border: 0;
+}
+
+header {
+	margin-bottom: 20px;
+}
+
+#head {
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	height: 130px;
+	width: 100%;
+	text-align: center;
+	background-color: #002E62;
+	line-height: 5px;
+	margin-bottom: 10px;
+}
+
+.logo{
+	position: absolute;
+	top: 10px;
+	height: 120px;
+	width: 170px;
+}
+
+h1 {
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #C1D32F;
+}
+
+#head p {
+	color: white;
+}
+
+/*Diaporama*/
+
+.titreContainer {
+	display: flex;
+	background-color: #002E62;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.titreContainer img {
+	color: white;
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 30px;
+	width: 30px;
+}
+
+.titreSection {
+	font-weight: bold;
+	font-size: 1.1em;
+	color: white;
+}
+
+#diaporama {
+
+	display: flex;
+	justify-content: center;
+	max-width: 1000px;
+	width: 100%;
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.sliders {
+	flex-wrap: nowrap;
+	justify-content: center;
+	vertical-align: middle;
+	width:80%;
+
+}
+
+.diapo {
+	border: 6px solid greenyellow;
+	border-radius: 20px;
+	max-width: 1000px;
+	height: 300px;
+	text-align: center;
+	overflow : hidden;
+}
+
+.diapo img {
+	height: 300px;
+	width: 100%;
+}
+
+.diapo figcaption {
+	display: block;
+	position: relative;
+	top: -70%;
+	margin: auto;
+	padding: 40px;
+	width: 70%;
+	color: white;
+	border: 1px solid black;
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev, .next {
+	cursor: pointer;
+	width: auto;
+	height: 40%;
+	padding: 16px;
+	margin-top: 130px;
+	color: black;
+	font-weight: bold;
+	font-size: 50px;
+	transition: 0.6s ease;
+	border-radius: 3px 0 0 3px;
+	user-select: none;
+}
+
+.next {
+	border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+	color: white;
+}
+
+#stop {
+	display: block;
+	margin:auto;
+}
+
+/*Fin du diaporama*/
+
+#container {
+    display:flex;
+	width: auto;
+    justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 30px;
+    height: 500px;
+    margin-bottom: 20px;
+}
+.hid {
+	display:none;
+}
+
+/*Map*/
+
+#map {
+	display: flex;
+    height: 479px;
+    width: 50%;
+    margin-left: 0;
+	border: 1px solid black;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	z-index: 1;
+}
+
+/*Blocs de réservations*/
+
+.block {
+
+	border: 1px solid black;
+	margin: 10px;
+	margin-top: 20px;
+	height: 459px;
+	line-height: 30px;
+	width: 450px;
+	padding: 10px;
+	background-color: white;
+}
+
+
+.titreInfoStation {
+    text-align: center;
+}
+
+#listeInfo {
+    list-style-type: none;
+	padding: 0;
+}
+
+.info {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.button {
+	margin:auto;
+}
+
+form {
+	flex-direction: column;
+}
+
+.butName {
+	margin-top: 20px;
+}
+
+canvas {
+	border: 2px solid black;
+	background-color: cornsilk;
+	margin: auto;
+	margin-top: -10px;
+	width: 300px;
+}
+
+form div {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#infoReservation {
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 80%;
+	height: auto;
+	text-align: center;
+	line-height: 20px;
+}
+
+
+#infoReservation span {
+	font-weight: bold;
+}
+
+#stationConfirm {
+	display: block;
+	font-weight: bold;
+	margin: auto;
+	width: 40%;
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+
+/*--------------------------------------Responsive----------------------------*/
+
+@media screen and (max-width: 1000px) {
+
+	#head h1 {
+		margin-left: 10%;
+	}
+	#head p {
+		width: 70%;
+		margin-left: 22%;
+		line-height: 25px;
+	}
+
+	.sliders {
+		width: 100%;
+	}
+
+	figure {
+		position: relative;
+		width: 80%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+
+	.diapo .texteDiapo {
+		width: 50%;
+	}
+
+
+	#container {
+		display: flex;
+		height: 900px;
+	}
+
+	.block {
+		border: 2px solid black;
+		width: 87%;
+		min-width: 100px;
+		margin: auto;
+	}
+
+	#map {
+		width: 90%;
+		height: 300px;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+
+	canvas {
+		line-height: 100%;
+	}
+
+	footer {
+		width: 92%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+
+	.logo {
+		height: 60px;
+		width : 80px;
+		margin-right: 20px;
+	}
+
+	#head h1 {
+		margin-left: 14%;
+	}
+	#head p {
+		margin-top: -5px;
+	}
+}
+
+	.diapo {
+		height: 200px;
+	}
+
+	.diapo img {
+		height: 200px;
+	}
+
+	.diapo figcaption {
+		top: -90%;
+	}
+
+	.prev, .next {
+		margin-top: 70px;
+	}

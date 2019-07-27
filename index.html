@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Location de vélo</title>
+
+
+	<link rel="icon" href="images/logocergy.jpg" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+	<section id="head">
+		<img class="logo" alt="logo" src="images/logocergy.jpg">
+		<h1>Bienvenue sur Vélo2 !</h1>
+
+		<p>Votre service de location de vélib(s) 7j/7, 24h/24 dans toutes les stations sur la Ville de Cergy-Pontoise !</p>
+	</section>
+
+		  		<!--Diaporama-->
+	<div class="titreContainer">
+		<img alt="interrogation" src="images/inter.png">
+		<h2 class="titreSection">Retrouvez toutes les étapes ci-dessous pour commencer votre réservation :</h2>
+	</div>
+
+    <section id="diaporama">
+
+
+    	<i class="fas fa-angle-left prev" id="butPrev"></i>
+
+		<div class="sliders">
+    		<figure class="diapo fade">
+				<img alt="selectionner" src="images/diapo1.png">
+    			<figcaption class ="texteDiapo">Cliquez sur l'icône de la station qui vous interesse</figcaption>
+    		</figure>
+
+
+	    	<figure class="diapo fade">
+				<img alt="signer" src="images/diapo3.png">
+	    		<figcaption class ="texteDiapo">Remplissez les informations demandées et signez</figcaption>
+	    	</figure>
+
+	    	<figure class="diapo fade">
+				<img alt="reservation" src="images/done.jpg">
+	    		<figcaption class ="texteDiapo">Votre réservation sera valable pendant 20 minutes !</figcaption>
+	    	</figure>
+	    	
+		</div>
+
+		<i class="fas fa-angle-right next" id="butNext"></i>
+
+   	</section>
+
+	<button type="button" id="stop">Arrêter le diaporama</button>
+   			<!--Fin du diaporama-->
+</header>
+
+<div class="titreContainer">
+	<img alt="interrogation" src="images/boussole.png">
+	<h2 class="titreSection">Sélectionnez et louez votre vélo :</h2>
+</div>
+
+   			<!--Carte interactive-->
+	<section id="container">
+		<div id="map">
+		</div>
+
+				<!--Fin de la carte interactive-->
+
+
+
+				<!--Informations station-->
+		<aside id="infoStations" class="block">
+			<h2 class="titreInfoStation">Informations sur la station</h2>
+			<ul id="listeInfo">
+				<li><span class ="info">Adresse : </span> <span id="adresseStation" class="contenuInfo"> <!-- Adresse insérée en Javascript --> </span></li>
+				<li><span class ="info">Etat : </span> <span id="etatStation" class="contenuInfo"> <!-- État inséré en Javascript --> </span></li>
+				<li><span class ="info">Vélos disponibles : </span> <span id="veloDispo" class="contenuInfo"> <!-- Nombre inséré en Javascript --> </span></li>
+				<li><span class ="info">Points d'attache disponibles : </span> <span id="attacheDispo" class="contenuInfo"> <!-- Nombre inséré en Javascript --> </span></li>
+			</ul>
+			<button type="button" id="butReservation" class="button hid">Réserver</button>
+		</aside>
+				<!--Fin de Informations station-->
+
+
+
+				<!--formulaire de réservation (nom, prénom et signature + bouton réserver)-->
+
+		<form id="form" class="hid block">
+			<p>Merci de renseigner les informations demandées : </p>
+			<label class="inputText"> Votre nom : </label> <input type="text" name="inputLastName" id="inputLastName" class="inputResa" required>
+			<label class="inputText"> Votre prénom : </label> <input type="text" name="inputFirstName" id="inputFirstName" class="inputResa" required>
+			<p>Dessinez votre signature : </p>
+			<canvas id="canvas">
+				Veuillez mettre votre navigateur à jour afin de finaliser votre réservation.
+			</canvas>
+			<div>
+				<button type="button" id="clearCanvas" class="button butName">Effacer la signature</button>
+				<button type="button" id="confirmResa" class="button butName">Confirmer la réservation</button>
+			</div>
+		</form>
+    </section>
+
+				<!--Fin du formulaire de réservation-->
+		<div class="titreContainer">
+			<img alt="interrogation" src="images/sablier.png">
+			<h2 class="titreSection">Etat de la location en cours :</h2>
+		</div>
+				<!--Etat de la réservation-->
+
+		<footer id="infoReservation">
+			<p id="noRes">Aucune réservation effectuée pour le moment.</p>
+            <div id="resConf" class="hid">
+                <p>Reservation confirmée au nom de <span id="nameConfirm"></span> <span id="fNameConfirm"></span> à l'adresse suivante : </p>
+                <p id="stationConfirm"></p>
+                <p>Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour le récupérer !</p>
+            </div>
+            <p id="resStop" class="hid">Le temps est écoulé et votre réservation a été annulée. N'hésitez pas à réutiliser nos vélos pour vos déplacements !</p>
+		</footer>
+
+
+   			<!--Fin de l'Etat de la réservation-->
+
+	<script src="js/Slider.js"></script>
+	<script src="js/ajax.js"></script>
+	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+	<script src="js/Map.js"></script>
+	<script src="js/Reservation.js"></script>
+	<script src="js/Canvas.js"></script>
+	<script src="js/velo.js" ></script>
+
+</body>
+
+</html>
