@@ -87,7 +87,7 @@ h1 {
 	flex-wrap: nowrap;
 	justify-content: center;
 	vertical-align: middle;
-	width:80%;
+	width:60%;
 
 }
 
@@ -108,8 +108,8 @@ h1 {
 .diapo figcaption {
 	display: block;
 	position: relative;
-	top: -70%;
 	margin: auto;
+	margin-top: 20px;
 	padding: 40px;
 	width: 70%;
 	color: white;
