@@ -43,10 +43,12 @@ h1 {
 	font-size: 1.7em;
 	font-weight: bold;
 	color: #C1D32F;
+	object-fit: contain;
 }
 
 #head p {
 	color: white;
+	object-fit: contain;
 }
 
 /*Diaporama*/
@@ -108,6 +110,7 @@ h1 {
 .diapo figcaption {
 
 	display: block;
+	object-fit: contain;
 	position: relative;
 	margin: auto;
 	margin-top: 7%;
@@ -333,10 +336,13 @@ form div {
 	}
 
 	#head h1 {
-		margin-left: 14%;
+		margin-left: 23%;
+		font-size: 1em;
 	}
 	#head p {
+		margin-left: 26%;
 		margin-top: -5px;
+		font-size: 0.8em;
 	}
 }
 
