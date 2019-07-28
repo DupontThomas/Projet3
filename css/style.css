@@ -53,14 +53,14 @@ h1 {
 
 /*Diaporama*/
 
-.titreContainer {
+.titleContainer {
 	display: flex;
 	background-color: #002E62;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-.titreContainer img {
+.titleContainer img {
 	color: white;
 	margin-top: 10px;
 	margin-right: 10px;
@@ -68,7 +68,7 @@ h1 {
 	width: 30px;
 }
 
-.titreSection {
+.titleSection {
 	font-weight: bold;
 	font-size: 1.1em;
 	color: white;
@@ -195,11 +195,11 @@ h1 {
 }
 
 
-.titreInfoStation {
+.titleInfoStation {
     text-align: center;
 }
 
-#listeInfo {
+#listInfo {
     list-style-type: none;
 	padding: 0;
 }

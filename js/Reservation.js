@@ -2,7 +2,7 @@
 
 class Reservation {
     constructor() {
-        this.blocInfoResa = document.getElementById("infoReservation");
+        this.blockInfoResa = document.getElementById("infoReservation");
         this.address = sessionStorage.getItem("stationAdress");
         this.noRes = document.getElementById("noRes");
         this.stationConfirm = document.getElementById("stationConfirm");
@@ -14,8 +14,8 @@ class Reservation {
         this.fNameConfirm = document.getElementById("fNameConfirm");
         this.lName = document.getElementById("inputLastName");
         this.fName = document.getElementById("inputFirstName");
-        this.nom = localStorage.getItem("lastname");
-        this.prenom = localStorage.getItem("firstname");
+        this.storedName = localStorage.getItem("lastname");
+        this.storedFName = localStorage.getItem("firstname");
 
         this.minTimer = document.getElementById("minTimer");
         this.secTimer = document.getElementById("secTimer");
@@ -53,8 +53,8 @@ class Reservation {
             localStorage.setItem("firstname", this.fName.value);
 
             //Attribution des données en local dans une variable
-            this.nom = localStorage.getItem("lastname");
-            this.prenom = localStorage.getItem("firstname");
+            this.storedName = localStorage.getItem("lastname");
+            this.storedFName = localStorage.getItem("firstname");
 
             //Stockage de l'adresse de la station sélectionnée
             this.address = sessionStorage.getItem("stationAdress");
@@ -64,7 +64,7 @@ class Reservation {
             this.noRes.classList.add("hid");
             this.resStop.classList.add("hid");
             this.resConf.classList.remove("hid");
-            this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
+            this.blockInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
             this.stationConfirm.innerText = this.address;
             this.timeMin = 20;
             this.timeSec = 0;
@@ -92,7 +92,7 @@ class Reservation {
         if (this.timeMin < 0) {
             this.resConf.classList.add("hid");
             this.resStop.classList.remove("hid");
-            this.blocInfoResa.style.backgroundColor = "rgba(255,51,0,0.5)";
+            this.blockInfoResa.style.backgroundColor = "rgba(255,51,0,0.5)";
             clearInterval(this.timer);
         }
     }
@@ -103,12 +103,12 @@ class Reservation {
         this.setInfoResa();
         this.noRes.classList.add("hid");
         this.resConf.classList.remove("hid");
-        this.blocInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
+        this.blockInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
     }
 
     setInfoResa() {
-        this.nameConfirm.innerText = this.nom;
-        this.fNameConfirm.innerText = this.prenom;
+        this.nameConfirm.innerText = this.storedName;
+        this.fNameConfirm.innerText = this.storedFName;
         this.stationConfirm.innerText = this.address;
         this.minTimer.innerText = this.timeMin;
         this.secTimer.innerText = this.timeSec;

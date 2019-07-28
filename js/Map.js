@@ -8,17 +8,17 @@ class Map {
 
 // Initialisation de la carte
     initMap() {
-        var macarte = L.map("map").setView([this.lat, this.lon], 11);
+        var mymap = L.map("map").setView([this.lat, this.lon], 11);
         // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
         L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
             attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
             minZoom: 1,
             maxZoom: 20
-        }).addTo(macarte);
+        }).addTo(mymap);
 
         //Récupération des stations de vélo + Attribution des marqueurs
         ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey=0011765f39add360397de65f4aa75c3fc275c182", function (reponse) {
-            var butResa = document.getElementById("butReservation");
+            var butRes = document.getElementById("butReservation");
             const listeStations = JSON.parse(reponse);
 
             listeStations.forEach(station => {
@@ -38,10 +38,10 @@ class Map {
 
                 var marker ="";
                 if (station.status === "OPEN") {
-                   marker = L.marker([station.position.lat,station.position.lng], { icon: myGreenIcon }).addTo(macarte);
+                   marker = L.marker([station.position.lat,station.position.lng], { icon: myGreenIcon }).addTo(mymap);
                 }
                 else {
-                    marker = L.marker([station.position.lat,station.position.lng], { icon: myRedIcon }).addTo(macarte);
+                    marker = L.marker([station.position.lat,station.position.lng], { icon: myRedIcon }).addTo(mymap);
                 }
 
                 //Affichage des infos de la station lors d'un clic sur son marker
@@ -80,18 +80,18 @@ class Map {
                     canvas.clearCanvas();
 
                     //Affichage du bouton permettant de réserver
-                    butResa.classList.remove("hid");
-                    butResa.style.display = "block";
+                    butRes.classList.remove("hid");
+                    butRes.style.display = "block";
 
                     //Remplacement du bloc 'Info de la station' par le formulaire de réservation lors du clic sur le bouton réserver
-                    butResa.addEventListener("click", function(){
+                    butRes.addEventListener("click", function(){
                         document.getElementById("form").style.display = "flex";
                         document.getElementById("infoStations").classList.add("hid");
 
                         //Pré-remplissage des champs nom/prénom si une réservation a déjà été faite précédemment
                         if(reservation.nom !== "") {
-                            document.getElementById("inputLastName").value = reservation.nom;
-                            document.getElementById("inputFirstName").value = reservation.prenom;
+                            document.getElementById("inputLastName").value = reservation.storedName;
+                            document.getElementById("inputFirstName").value = reservation.storedFName;
                         }
                 });
             });
