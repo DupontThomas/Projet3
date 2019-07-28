@@ -25,7 +25,7 @@ class Reservation {
     }
 
     initRes() {
-        this.confirmResa.addEventListener("click", this.storeData.bind(this));
+        this.confirmResa.addEventListener("click", this.checkData.bind(this));
 
         if(this.timeSec===0 && this.timeMin===0) {
             sessionStorage.setItem("stationAdress", "");
@@ -37,7 +37,7 @@ class Reservation {
             }
     }
 
-    storeData() {
+    checkData() {
         if (this.lName.value === "") {
             alert("Merci de renseigner votre nom pour valider votre réservation.");
         }
@@ -48,31 +48,36 @@ class Reservation {
             alert("Votre signature est nécessaire pour valider votre réservation.");
         }
         else {
-            //stockage du nom et prenom en local
-            localStorage.setItem("lastname", this.lName.value);
-            localStorage.setItem("firstname", this.fName.value);
-
-            //Attribution des données en local dans une variable
-            this.storedName = localStorage.getItem("lastname");
-            this.storedFName = localStorage.getItem("firstname");
-
-            //Stockage de l'adresse de la station sélectionnée
-            this.address = sessionStorage.getItem("stationAdress");
-
-            //Affichage de l'encadré confirmant la réservation avec nom, prenom, adresse de la station et timer
-
-            this.noRes.classList.add("hid");
-            this.resStop.classList.add("hid");
-            this.resConf.classList.remove("hid");
-            this.blockInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
-            this.stationConfirm.innerText = this.address;
-            this.timeMin = 20;
-            this.timeSec = 0;
-
-            this.setInfoResa();
-            clearInterval(this.timer);
-            this.startTimer();
+            this.storeData();
         }
+    }
+
+    storeData() {
+
+        //stockage du nom et prenom en local
+        localStorage.setItem("lastname", this.lName.value);
+        localStorage.setItem("firstname", this.fName.value);
+
+        //Attribution des données en local dans une variable
+        this.storedName = localStorage.getItem("lastname");
+        this.storedFName = localStorage.getItem("firstname");
+
+        //Stockage de l'adresse de la station sélectionnée
+        this.address = sessionStorage.getItem("stationAdress");
+
+        //Affichage de l'encadré confirmant la réservation avec nom, prenom, adresse de la station et timer
+
+        this.noRes.classList.add("hid");
+        this.resStop.classList.add("hid");
+        this.resConf.classList.remove("hid");
+        this.blockInfoResa.style.backgroundColor = "rgba(51,255,51,0.5)";
+        this.stationConfirm.innerText = this.address;
+        this.timeMin = 20;
+        this.timeSec = 0;
+
+        this.setInfoResa();
+        clearInterval(this.timer);
+        this.startTimer();
     }
 
             //Mise en place du timer
