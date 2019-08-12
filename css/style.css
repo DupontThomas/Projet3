@@ -43,12 +43,10 @@ h1 {
 	font-size: 1.7em;
 	font-weight: bold;
 	color: #C1D32F;
-	object-fit: contain;
 }
 
 #head p {
 	color: white;
-	object-fit: contain;
 }
 
 /*Diaporama*/
@@ -78,8 +76,6 @@ h1 {
 
 	display: flex;
 	justify-content: center;
-	max-width: 1000px;
-	width: 100%;
 	position: relative;
 	margin: auto;
 	margin-top: 20px;
@@ -89,34 +85,26 @@ h1 {
 	flex-wrap: nowrap;
 	justify-content: center;
 	vertical-align: middle;
-	width:60%;
+	width:50%;
 
 }
 
 .diapo {
 	border: 6px solid greenyellow;
 	border-radius: 20px;
-	max-width: 1000px;
-	height: 300px;
 	text-align: center;
 	overflow : hidden;
-}
-
-.diapo img {
-	height: 300px;
-	width: 100%;
 }
 
 .diapo figcaption {
 
 	display: block;
-	object-fit: contain;
 	position: relative;
 	margin: auto;
+	width: 40%;
 	margin-top: 7%;
 	margin-bottom: 7%;
 	padding: 40px;
-	width: 70%;
 	color: white;
 	border: 1px solid black;
 	border-radius: 20px;
