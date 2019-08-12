@@ -15,68 +15,60 @@
 
 <body>
 
-<header>
+	<header>
 
-	<section id="head">
-		<img class="logo" alt="logo" src="images/logocergy.jpg">
-		<h1>Bienvenue sur Vélo2 !</h1>
+		<section id="head">
+			<img class="logo" alt="logo" src="images/logocergy.jpg">
+			<h1>Bienvenue sur Vélo2 !</h1>
+			<p>Votre service de location de vélib(s) 7j/7, 24h/24 dans toutes les stations sur la Ville de Cergy-Pontoise !</p>
+		</section>
 
-		<p>Votre service de location de vélib(s) 7j/7, 24h/24 dans toutes les stations sur la Ville de Cergy-Pontoise !</p>
-	</section>
+					<!--Diaporama-->
+		<div class="titleContainer">
+			<img alt="interrogation" src="images/inter.png">
+			<h2 class="titleSection">Retrouvez toutes les étapes ci-dessous pour commencer votre réservation :</h2>
+		</div>
 
-		  		<!--Diaporama-->
+		<section id="diaporama">
+			<i class="fas fa-angle-left prev" id="butPrev"></i>
+
+			<figure class="sliders">
+				<figure class="diapo fade">
+					<img alt="selectionner" src="images/diapo1.png">
+					<figcaption class ="texteDiapo">Cliquez sur l'icône de la station qui vous interesse</figcaption>
+				</figure>
+
+				<figure class="diapo fade">
+					<img alt="signer" src="images/diapo3.png">
+					<figcaption class ="texteDiapo">Remplissez les informations demandées et signez</figcaption>
+				</figure>
+
+				<figure class="diapo fade">
+					<img alt="reservation" src="images/done.jpg">
+					<figcaption class ="texteDiapo">Votre réservation sera valable pendant 20 minutes !</figcaption>
+				</figure>
+
+			</figure>
+
+			<i class="fas fa-angle-right next" id="butNext"></i>
+		</section>
+
+		<button type="button" id="stop">Arrêter le diaporama</button>
+				<!--Fin du diaporama-->
+	</header>
+
 	<div class="titleContainer">
-		<img alt="interrogation" src="images/inter.png">
-		<h2 class="titleSection">Retrouvez toutes les étapes ci-dessous pour commencer votre réservation :</h2>
+		<img alt="boussole" src="images/boussole.png">
+		<h2 class="titleSection">Sélectionnez et louez votre vélo :</h2>
 	</div>
-
-    <section id="diaporama">
-
-
-    	<i class="fas fa-angle-left prev" id="butPrev"></i>
-
-		<figure class="sliders">
-    		<figure class="diapo fade">
-				<img alt="selectionner" src="images/diapo1.png">
-    			<figcaption class ="texteDiapo">Cliquez sur l'icône de la station qui vous interesse</figcaption>
-    		</figure>
-
-
-	    	<figure class="diapo fade">
-				<img alt="signer" src="images/diapo3.png">
-	    		<figcaption class ="texteDiapo">Remplissez les informations demandées et signez</figcaption>
-	    	</figure>
-
-	    	<figure class="diapo fade">
-				<img alt="reservation" src="images/done.jpg">
-	    		<figcaption class ="texteDiapo">Votre réservation sera valable pendant 20 minutes !</figcaption>
-	    	</figure>
-	    	
-		</figure>
-
-		<i class="fas fa-angle-right next" id="butNext"></i>
-
-   	</section>
-
-	<button type="button" id="stop">Arrêter le diaporama</button>
-   			<!--Fin du diaporama-->
-</header>
-
-<div class="titleContainer">
-	<img alt="boussole" src="images/boussole.png">
-	<h2 class="titleSection">Sélectionnez et louez votre vélo :</h2>
-</div>
 
    			<!--Carte interactive-->
 	<section id="container">
 		<div id="map">
 		</div>
+			<!--Fin de la carte interactive-->
 
-				<!--Fin de la carte interactive-->
-
-
-
-				<!--Informations station-->
+			<!--Informations station-->
 		<aside id="infoStations" class="block">
 			<h2 class="titleInfoStation">Informations sur la station</h2>
 			<ul id="listInfo">
@@ -87,11 +79,9 @@
 			</ul>
 			<button type="button" id="butReservation" class="button hid">Réserver</button>
 		</aside>
-				<!--Fin de Informations station-->
+			<!--Fin de Informations station-->
 
-
-
-				<!--formulaire de réservation (nom, prénom et signature + bouton réserver)-->
+			<!--formulaire de réservation (nom, prénom et signature + bouton réserver)-->
 
 		<form id="form" class="hid block">
 			<p>Merci de renseigner les informations demandées : </p>
@@ -108,23 +98,22 @@
 		</form>
     </section>
 
-				<!--Fin du formulaire de réservation-->
-		<div class="titleContainer">
-			<img alt="sablier" src="images/sablier.png">
-			<h2 class="titleSection">Etat de la location en cours :</h2>
+			<!--Fin du formulaire de réservation-->
+	<div class="titleContainer">
+		<img alt="sablier" src="images/sablier.png">
+		<h2 class="titleSection">Etat de la location en cours :</h2>
+	</div>
+			<!--Etat de la réservation-->
+
+	<footer id="infoReservation">
+		<p id="noRes">Aucune réservation effectuée pour le moment.</p>
+		<div id="resConf" class="hid">
+			<p>Reservation confirmée au nom de <span id="nameConfirm"></span> <span id="fNameConfirm"></span> à l'adresse suivante : </p>
+			<p id="stationConfirm"></p>
+			<p>Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour le récupérer !</p>
 		</div>
-				<!--Etat de la réservation-->
-
-		<footer id="infoReservation">
-			<p id="noRes">Aucune réservation effectuée pour le moment.</p>
-            <div id="resConf" class="hid">
-                <p>Reservation confirmée au nom de <span id="nameConfirm"></span> <span id="fNameConfirm"></span> à l'adresse suivante : </p>
-                <p id="stationConfirm"></p>
-                <p>Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour le récupérer !</p>
-            </div>
-            <p id="resStop" class="hid">Le temps est écoulé et votre réservation a été annulée. N'hésitez pas à réutiliser nos vélos pour vos déplacements !</p>
-		</footer>
-
+		<p id="resStop" class="hid">Le temps est écoulé et votre réservation a été annulée. N'hésitez pas à réutiliser nos vélos pour vos déplacements !</p>
+	</footer>
 
    			<!--Fin de l'Etat de la réservation-->
 

@@ -72,7 +72,6 @@ class Map {
                     space.innerHTML += station.available_bike_stands;
 
                     //Nettoyage + Mise en mémoire de l'adresse de la station sélectionnée
-
                     sessionStorage.clear();
                     sessionStorage.setItem("stationAdress", station.address);
 
@@ -82,7 +81,6 @@ class Map {
                     //Affichage du bouton permettant de réserver
                     butRes.classList.remove("hid");
                     butRes.style.display = "block";
-
                     //Remplacement du bloc 'Info de la station' par le formulaire de réservation lors du clic sur le bouton réserver
                     butRes.addEventListener("click", function(){
                         document.getElementById("form").style.display = "flex";
@@ -93,8 +91,9 @@ class Map {
                             document.getElementById("inputLastName").value = reservation.storedName;
                             document.getElementById("inputFirstName").value = reservation.storedFName;
                         }
+                    });
                 });
             });
         });
-    });
-}}
+    }
+}

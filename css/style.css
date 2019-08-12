@@ -8,7 +8,6 @@
 
 /*-----------------------------------------------*/
 
-
 body {
 	width:100%;
 	margin: auto;
@@ -151,6 +150,7 @@ h1 {
     height: 500px;
     margin-bottom: 20px;
 }
+
 .hid {
 	display:none;
 }
@@ -181,7 +181,6 @@ h1 {
 	padding: 10px;
 	background-color: white;
 }
-
 
 .titleInfoStation {
     text-align: center;
@@ -253,7 +252,6 @@ form div {
 	animation-duration: 1.5s;
 }
 
-
 /*--------------------------------------Responsive----------------------------*/
 
 @media screen and (max-width: 1000px) {
@@ -261,6 +259,7 @@ form div {
 	#head h1 {
 		margin-left: 10%;
 	}
+
 	#head p {
 		width: 70%;
 		margin-left: 22%;
@@ -285,6 +284,7 @@ form div {
 	.prev, .next {
 		top: 0;
 	}
+
 	#container {
 		display: flex;
 		height: 900px;

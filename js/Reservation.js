@@ -19,8 +19,8 @@ class Reservation {
 
         this.minTimer = document.getElementById("minTimer");
         this.secTimer = document.getElementById("secTimer");
-        this.timeMin = 0;
-        this.timeSec = 0;
+        this.timeMin = sessionStorage.getItem("timeMin");
+        this.timeSec = sessionStorage.getItem("timeSec");
         this.timer= "";
     }
 
