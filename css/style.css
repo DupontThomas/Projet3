@@ -85,7 +85,6 @@ h1 {
 	justify-content: center;
 	vertical-align: middle;
 	width:50%;
-
 }
 
 .diapo {
@@ -267,7 +266,7 @@ form div {
 	}
 
 	.sliders {
-		width: 100%;
+		width: 70%;
 	}
 
 	figure {
@@ -276,6 +275,8 @@ form div {
 		margin: auto;
 		margin-bottom: 10px;
 	}
+
+
 
 	.diapo figcaption {
 		width: 50%;
@@ -339,11 +340,13 @@ form div {
 	}
 
 	.diapo img {
-		height: 200px;
+		margin-top: 10px;
+		width: 70%;
+		height: 90%;
 	}
 
 	.diapo figcaption {
-		top: -100%;
+		top: -95%;
 	}
 
 	.prev, .next {
