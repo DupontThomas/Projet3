@@ -84,7 +84,7 @@ h1 {
 	flex-wrap: nowrap;
 	justify-content: center;
 	vertical-align: middle;
-	width:50%;
+	width: 500px;
 }
 
 .diapo {
@@ -265,9 +265,7 @@ form div {
 		line-height: 25px;
 	}
 
-	.sliders {
-		width: 70%;
-	}
+
 
 	figure {
 		position: relative;
